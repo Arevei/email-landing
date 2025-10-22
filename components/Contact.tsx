@@ -132,7 +132,7 @@ const Contact = () => {
                 href="mailto:contact@arevei.com" 
                 className="text-accent hover:underline font-medium"
               >
-                contact@arevei.com
+                vinay@arevei.com
               </a>
             </p>
           </div>

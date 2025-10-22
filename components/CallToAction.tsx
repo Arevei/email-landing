@@ -1,6 +1,7 @@
 "use client";
 import { Button } from "@/components/ui/button";
 import { ArrowRight, Download } from "lucide-react";
+import Link from "next/link";
 
 const CallToAction = () => {
   const scrollToContact = () => {
@@ -60,6 +61,7 @@ const CallToAction = () => {
           </div>
 
           <div className="pt-6">
+            <Link href="/contact">
             <Button 
               variant="outline" 
               size="lg"
@@ -68,6 +70,7 @@ const CallToAction = () => {
               <Download className="mr-2" />
               Download Free Guide
             </Button>
+            </Link>
           </div>
         </div>
       </div>
