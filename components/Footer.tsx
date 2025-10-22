@@ -7,8 +7,13 @@ const Footer = () => {
       <div className="container max-w-6xl mx-auto">
         <div className="text-center space-y-6">
           {/* Logo */}
-          <div className="mb-8">
-            <h3 className="text-3xl font-bold gradient-text">Arevei</h3>
+          <div className="mx-auto max-w-3xl mb-8">
+          <img
+            src="/AR-Wordmark.svg"
+            alt="Arevei"
+            className="w-20 h-auto mx-auto "
+          />
+          
           </div>
 
           {/* Footer text */}

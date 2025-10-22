@@ -9,12 +9,23 @@ const Hero = () => {
 
   return (
     <section className="relative min-h-screen flex items-center justify-center px-4 py-20 overflow-hidden">
+      
       {/* Subtle gradient background effects */}
       <div className="absolute inset-0 bg-gradient-to-b from-accent/5 via-transparent to-transparent pointer-events-none" />
       <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-accent/10 rounded-full blur-[120px] pointer-events-none" />
       <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-blue-500/10 rounded-full blur-[120px] pointer-events-none" />
 
-      <div className="container max-w-5xl mx-auto relative z-10">
+      <div className="container max-w-5xl mx-auto relative z-10 text-center">
+        <div className="mx-auto max-w-3xl mb-8">
+          <img src="AR-logo.png" alt="Logo" className="w-20 rounded-full mx-auto"/>
+          <img
+            src="/AR-Wordmark.svg"
+            alt="Arevei"
+            className="w-20 h-auto mx-auto "
+          />
+          
+          </div>
+        
         <div className="text-center space-y-8 animate-fade-in-up">
           <h1 className="text-5xl md:text-7xl font-bold leading-tight">
             Your Next Revenue Leap
