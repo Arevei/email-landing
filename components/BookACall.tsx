@@ -35,14 +35,7 @@ const BookACall = () => {
             
             {/* Calendly Embed - Replace with actual Calendly URL */}
             <div className="relative w-full bg-background/50 rounded-lg border border-border/50 overflow-hidden" style={{ minHeight: "700px" }}>
-              <iframe 
-                src="https://calendly.com/yourusername/30min?hide_event_type_details=1&background_color=000000&text_color=FFFFFF&primary_color=00A2FF" 
-                width="100%" 
-                height="700" 
-                frameBorder="0"
-                title="Schedule a call"
-                className="w-full"
-              />
+             <div className="calendly-inline-widget" data-url="https://calendly.com/vinay-arevei/30min?hide_event_type_details=1" style={{minWidth:"320px",height:"700px"}}></div>
             </div>
             
             <div className="mt-6 flex items-center justify-center gap-2 text-sm text-muted-foreground">

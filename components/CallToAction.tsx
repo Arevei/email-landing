@@ -65,9 +65,9 @@ const CallToAction = () => {
             <Button 
               variant="outline" 
               size="lg"
-              className="border-accent/50 hover:bg-accent/10 hover:border-accent"
+              className="border-accent/50 hover:bg-accent/10 hover:border-accent cursor-pointer"
             >
-              <Download className="mr-2" />
+              <Download className="mr-2 " />
               Download Free Guide
             </Button>
             </Link>

@@ -1,55 +1,88 @@
 "use client"
-import { useState } from "react";
-import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
-import { Textarea } from "@/components/ui/textarea";
-import { Mail, Send } from "lucide-react";
-import { toast } from "@/hooks/use-toast";
+import { useState } from "react"
+import type React from "react"
+
+import { Button } from "@/components/ui/button"
+import { Input } from "@/components/ui/input"
+import { Textarea } from "@/components/ui/textarea"
+import { Send } from "lucide-react"
+import { useToast } from "@/hooks/use-toast"
 
 const Contact = () => {
+  const { toast } = useToast()
+  const [loading, setLoading] = useState(false)
   const [formData, setFormData] = useState({
     name: "",
     email: "",
     company: "",
     message: "",
-  });
-
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    
-    // Create mailto link with form data
-    const subject = encodeURIComponent(`Strategy Call Request from ${formData.name}`);
-    const body = encodeURIComponent(
-      `Name: ${formData.name}\nEmail: ${formData.email}\nCompany: ${formData.company}\n\nMessage:\n${formData.message}`
-    );
-    
-    window.location.href = `mailto:contact@arevei.com?subject=${subject}&body=${body}`;
-    
-    toast({
-      title: "Opening your email client...",
-      description: "We'll get back to you within 24 hours!",
-    });
-  };
+  })
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     setFormData({
       ...formData,
       [e.target.name]: e.target.value,
-    });
-  };
+    })
+  }
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault()
+
+    if (!formData.name || !formData.email || !formData.message) {
+      toast({
+        title: "Missing Information",
+        description: "Please fill in all required fields.",
+        variant: "destructive",
+      })
+      return
+    }
+
+    setLoading(true)
+
+    try {
+      const response = await fetch("/api/submit-form", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          ...formData,
+          formType: "contact",
+        }),
+      })
+
+      if (response.ok) {
+        toast({
+          title: "Success!",
+          description: "We'll get back to you within 24 hours!",
+        })
+        setFormData({ name: "", email: "", company: "", message: "" })
+      } else {
+        toast({
+          title: "Error",
+          description: "Failed to submit form. Please try again.",
+          variant: "destructive",
+        })
+      }
+    } catch (error) {
+      toast({
+        title: "Error",
+        description: "An error occurred. Please try again.",
+        variant: "destructive",
+      })
+    } finally {
+      setLoading(false)
+    }
+  }
 
   return (
     <section className="py-20 px-4 relative" id="contact">
       <div className="absolute top-0 left-1/2 -translate-x-1/2 w-3/4 h-px bg-gradient-primary opacity-30" />
-      
+
       <div className="container max-w-2xl mx-auto">
         <div className="text-center mb-12">
           <h2 className="text-4xl md:text-5xl font-bold mb-4">
             Let's <span className="gradient-text">Connect</span>
           </h2>
-          <p className="text-lg text-muted-foreground">
-            Fill in your details and let's start your growth journey
-          </p>
+          <p className="text-lg text-muted-foreground">Fill in your details and let's start your growth journey</p>
         </div>
 
         <form onSubmit={handleSubmit} className="space-y-6 bg-card border border-border rounded-xl p-8">
@@ -66,6 +99,7 @@ const Contact = () => {
               value={formData.name}
               onChange={handleChange}
               className="bg-background border-border focus:border-accent"
+              disabled={loading}
             />
           </div>
 
@@ -82,6 +116,7 @@ const Contact = () => {
               value={formData.email}
               onChange={handleChange}
               className="bg-background border-border focus:border-accent"
+              disabled={loading}
             />
           </div>
 
@@ -97,6 +132,7 @@ const Contact = () => {
               value={formData.company}
               onChange={handleChange}
               className="bg-background border-border focus:border-accent"
+              disabled={loading}
             />
           </div>
 
@@ -112,26 +148,19 @@ const Contact = () => {
               value={formData.message}
               onChange={handleChange}
               className="bg-background border-border focus:border-accent min-h-32"
+              disabled={loading}
             />
           </div>
 
-          <Button 
-            type="submit" 
-            variant="gradient" 
-            size="lg" 
-            className="w-full animate-glow"
-          >
+          <Button type="submit" variant="gradient" size="lg" className="w-full animate-glow" disabled={loading}>
             <Send className="mr-2" />
-            Send Message
+            {loading ? "Sending..." : "Send Message"}
           </Button>
 
           <div className="text-center pt-4">
             <p className="text-sm text-muted-foreground">
               Or email us directly at{" "}
-              <a 
-                href="mailto:contact@arevei.com" 
-                className="text-accent hover:underline font-medium"
-              >
+              <a href="mailto:vinay@arevei.com" className="text-accent hover:underline font-medium">
                 vinay@arevei.com
               </a>
             </p>
@@ -139,7 +168,7 @@ const Contact = () => {
         </form>
       </div>
     </section>
-  );
-};
+  )
+}
 
-export default Contact;
+export default Contact

@@ -17,7 +17,7 @@ const Hero = () => {
 
       <div className="container max-w-5xl mx-auto relative z-10 text-center">
         <div className="mx-auto max-w-3xl mb-8">
-          <img src="AR-logo.png" alt="Logo" className="w-20 rounded-full mx-auto"/>
+          {/* <img src="/AR-logo.png" alt="Logo" className="w-20 rounded-full mx-auto"/> */}
           <img
             src="/AR-Wordmark.svg"
             alt="Arevei"

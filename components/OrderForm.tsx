@@ -1,16 +1,19 @@
-"use client";
-import { useState } from "react";
-import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
-import { Label } from "@/components/ui/label";
-import { Card } from "@/components/ui/card";
-import { Checkbox } from "@/components/ui/checkbox";
-import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
-import { useToast } from "@/hooks/use-toast";
-import { CheckCircle2, Star } from "lucide-react";
+"use client"
+import { useState } from "react"
+import type React from "react"
+
+import { Button } from "@/components/ui/button"
+import { Input } from "@/components/ui/input"
+import { Label } from "@/components/ui/label"
+import { Card } from "@/components/ui/card"
+import { Checkbox } from "@/components/ui/checkbox"
+import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group"
+import { useToast } from "@/hooks/use-toast"
+import { CheckCircle2, Star } from "lucide-react"
 
 const OrderForm = () => {
-  const { toast } = useToast();
+  const { toast } = useToast()
+  const [loading, setLoading] = useState(false)
   const [formData, setFormData] = useState({
     firstName: "",
     lastName: "",
@@ -20,49 +23,93 @@ const OrderForm = () => {
     revenue: "",
     transactionalConsent: false,
     marketingConsent: false,
-  });
+  })
 
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault()
+
     if (!formData.firstName || !formData.lastName || !formData.email || !formData.phone) {
       toast({
         title: "Missing Information",
         description: "Please fill in all required fields.",
         variant: "destructive",
-      });
-      return;
+      })
+      return
     }
 
-    // Here you would typically send this to your backend
-    console.log("Form submitted:", formData);
-    
-    toast({
-      title: "Success!",
-      description: "Your request has been submitted. We'll be in touch soon!",
-    });
-  };
+    if (!formData.businessType || !formData.revenue) {
+      toast({
+        title: "Missing Information",
+        description: "Please select business type and revenue range.",
+        variant: "destructive",
+      })
+      return
+    }
+
+    setLoading(true)
+
+    try {
+      const response = await fetch("/api/submit-form", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          ...formData,
+          formType: "order",
+        }),
+      })
+
+      if (response.ok) {
+        toast({
+          title: "Success!",
+          description: "Your request has been submitted. We'll be in touch soon!",
+        })
+        setFormData({
+          firstName: "",
+          lastName: "",
+          email: "",
+          phone: "",
+          businessType: "",
+          revenue: "",
+          transactionalConsent: false,
+          marketingConsent: false,
+        })
+      } else {
+        toast({
+          title: "Error",
+          description: "Failed to submit form. Please try again.",
+          variant: "destructive",
+        })
+      }
+    } catch (error) {
+      toast({
+        title: "Error",
+        description: "An error occurred. Please try again.",
+        variant: "destructive",
+      })
+    } finally {
+      setLoading(false)
+    }
+  }
 
   const handleChange = (field: string, value: string | boolean) => {
-    setFormData(prev => ({ ...prev, [field]: value }));
-  };
+    setFormData((prev) => ({ ...prev, [field]: value }))
+  }
 
   return (
     <section className="py-20 px-4 relative" id="order-form">
       <div className="absolute top-0 left-1/2 -translate-x-1/2 w-3/4 h-px bg-gradient-primary opacity-30" />
-      
+
       <div className="container max-w-7xl mx-auto">
         <div className="grid lg:grid-cols-2 gap-12 items-start">
           {/* Left Column - Form */}
           <div className="space-y-8">
             <div className="space-y-4">
               <h2 className="text-4xl md:text-5xl font-bold leading-tight">
-                Grab The <span className="gradient-text">Email Mastery Bundle</span> —
-                Plug It In Today.
+                Grab The <span className="gradient-text">Email Mastery Bundle</span> — Plug It In Today.
               </h2>
               <p className="text-lg text-muted-foreground">
-                Built by real email marketing experts. Copy, paste, book calls, close deals. 
-                If it doesn't help? Full refund, keep everything.
+                Built by real email marketing experts. Copy, paste, book calls, close deals. If it doesn't help? Full
+                refund, keep everything.
               </p>
             </div>
 
@@ -78,7 +125,8 @@ const OrderForm = () => {
                     value={formData.firstName}
                     onChange={(e) => handleChange("firstName", e.target.value)}
                     required
-                    className="bg-background/50 border-border/50"
+                    disabled={loading}
+                    className="bg-background/50 border-border/50 mt-2"
                   />
                 </div>
 
@@ -92,7 +140,8 @@ const OrderForm = () => {
                     value={formData.lastName}
                     onChange={(e) => handleChange("lastName", e.target.value)}
                     required
-                    className="bg-background/50 border-border/50"
+                    disabled={loading}
+                    className="bg-background/50 border-border/50 mt-2"
                   />
                 </div>
 
@@ -107,7 +156,8 @@ const OrderForm = () => {
                     value={formData.email}
                     onChange={(e) => handleChange("email", e.target.value)}
                     required
-                    className="bg-background/50 border-border/50"
+                    disabled={loading}
+                    className="bg-background/50 border-border/50 mt-2"
                   />
                 </div>
 
@@ -122,7 +172,8 @@ const OrderForm = () => {
                     value={formData.phone}
                     onChange={(e) => handleChange("phone", e.target.value)}
                     required
-                    className="bg-background/50 border-border/50"
+                    disabled={loading}
+                    className="bg-background/50 border-border/50 mt-2"
                   />
                 </div>
 
@@ -135,7 +186,8 @@ const OrderForm = () => {
                     placeholder="e.g., SaaS, E-commerce, Agency"
                     value={formData.businessType}
                     onChange={(e) => handleChange("businessType", e.target.value)}
-                    className="bg-background/50 border-border/50"
+                    disabled={loading}
+                    className="bg-background/50 border-border/50 mt-2"
                   />
                 </div>
 
@@ -146,28 +198,28 @@ const OrderForm = () => {
                   <RadioGroup
                     value={formData.revenue}
                     onValueChange={(value) => handleChange("revenue", value)}
-                    className="space-y-3"
+                    className="space-y-3 mt-3"
                   >
                     <div className="flex items-center space-x-2">
-                      <RadioGroupItem value="0-2k" id="r1" />
+                      <RadioGroupItem value="0-2k" id="r1" disabled={loading} />
                       <Label htmlFor="r1" className="font-normal cursor-pointer text-muted-foreground">
                         $0 - $2k/m (Just starting out, need all the help I can get)
                       </Label>
                     </div>
                     <div className="flex items-center space-x-2">
-                      <RadioGroupItem value="2k-10k" id="r2" />
+                      <RadioGroupItem value="2k-10k" id="r2" disabled={loading} />
                       <Label htmlFor="r2" className="font-normal cursor-pointer text-muted-foreground">
                         $2k - $10k/m (I kinda know what I'm doing)
                       </Label>
                     </div>
                     <div className="flex items-center space-x-2">
-                      <RadioGroupItem value="10k-30k" id="r3" />
+                      <RadioGroupItem value="10k-30k" id="r3" disabled={loading} />
                       <Label htmlFor="r3" className="font-normal cursor-pointer text-muted-foreground">
                         $10k - $30k/m (I'm doing alright, but I'd like to do better)
                       </Label>
                     </div>
                     <div className="flex items-center space-x-2">
-                      <RadioGroupItem value="30k+" id="r4" />
+                      <RadioGroupItem value="30k+" id="r4" disabled={loading} />
                       <Label htmlFor="r4" className="font-normal cursor-pointer text-muted-foreground">
                         $30k+/m (Ready to take this to the next level)
                       </Label>
@@ -180,17 +232,16 @@ const OrderForm = () => {
                     <Checkbox
                       id="transactional"
                       checked={formData.transactionalConsent}
-                      onCheckedChange={(checked) => 
-                        handleChange("transactionalConsent", checked as boolean)
-                      }
+                      onCheckedChange={(checked) => handleChange("transactionalConsent", checked as boolean)}
+                      disabled={loading}
                     />
                     <Label
                       htmlFor="transactional"
                       className="text-xs text-muted-foreground font-normal leading-relaxed cursor-pointer"
                     >
-                      By checking this box, I consent to receive transactional messages related to my account, 
-                      orders, or services I have requested. These messages may include appointment reminders, 
-                      order confirmations, and account notifications among others.
+                      By checking this box, I consent to receive transactional messages related to my account, orders,
+                      or services I have requested. These messages may include appointment reminders, order
+                      confirmations, and account notifications among others.
                     </Label>
                   </div>
 
@@ -198,27 +249,27 @@ const OrderForm = () => {
                     <Checkbox
                       id="marketing"
                       checked={formData.marketingConsent}
-                      onCheckedChange={(checked) => 
-                        handleChange("marketingConsent", checked as boolean)
-                      }
+                      onCheckedChange={(checked) => handleChange("marketingConsent", checked as boolean)}
+                      disabled={loading}
                     />
                     <Label
                       htmlFor="marketing"
                       className="text-xs text-muted-foreground font-normal leading-relaxed cursor-pointer"
                     >
-                      By checking this box, I consent to receive marketing and promotional messages, 
-                      including special offers, discounts, new product updates among others.
+                      By checking this box, I consent to receive marketing and promotional messages, including special
+                      offers, discounts, new product updates among others.
                     </Label>
                   </div>
                 </div>
 
-                <Button 
-                  type="submit" 
-                  variant="gradient" 
-                  size="lg" 
+                <Button
+                  type="submit"
+                  variant="gradient"
+                  size="lg"
                   className="w-full text-lg font-bold"
+                  disabled={loading}
                 >
-                  GET INSTANT ACCESS
+                  {loading ? "SUBMITTING..." : "GET INSTANT ACCESS"}
                 </Button>
               </form>
             </Card>
@@ -236,9 +287,7 @@ const OrderForm = () => {
                 <span className="text-foreground font-semibold">4.5/5 star reviews</span>
               </div>
 
-              <h3 className="text-2xl font-bold mb-6 text-foreground">
-                Here's what you get:
-              </h3>
+              <h3 className="text-2xl font-bold mb-6 text-foreground">Here's what you get:</h3>
 
               <div className="space-y-4">
                 <div className="flex gap-3">
@@ -274,7 +323,8 @@ const OrderForm = () => {
 
               <div className="mt-6 pt-6 border-t border-border/30">
                 <p className="text-sm text-muted-foreground mb-2">
-                  Built & battle-tested across <span className="text-accent font-semibold">50+ six-figure businesses</span>.
+                  Built & battle-tested across{" "}
+                  <span className="text-accent font-semibold">50+ six-figure businesses</span>.
                 </p>
                 <div className="flex items-baseline gap-2">
                   <span className="text-3xl font-bold text-destructive line-through">$2997</span>
@@ -301,16 +351,16 @@ const OrderForm = () => {
               </div>
               <p className="font-semibold text-foreground mb-2">Next Level Mentorship!</p>
               <p className="text-sm text-muted-foreground">
-                Arevei's training & resources are next level. After implementing a few strategies, 
-                I started seeing better client engagement and more consistent leads. Their posts 
-                cut through the noise and give real, actionable steps.
+                Arevei's training & resources are next level. After implementing a few strategies, I started seeing
+                better client engagement and more consistent leads. Their posts cut through the noise and give real,
+                actionable steps.
               </p>
             </Card>
           </div>
         </div>
       </div>
     </section>
-  );
-};
+  )
+}
 
-export default OrderForm;
+export default OrderForm
