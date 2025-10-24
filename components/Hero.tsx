@@ -21,7 +21,7 @@ const Hero = () => {
           <img
             src="/AR-Wordmark.svg"
             alt="Arevei"
-            className="w-20 h-auto mx-auto "
+            className="w-20 md:w-36 h-auto mx-auto "
           />
           
           </div>
