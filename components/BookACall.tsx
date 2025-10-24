@@ -14,15 +14,15 @@ const BookACall = () => {
           </h2>
           
           <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-            You've seen what's possible — now let's design your roadmap to revenue growth.
+            You've seen what's possible now let's design your roadmap to revenue growth.
           </p>
           
           <p className="text-lg text-muted-foreground">
-            📅 Pick a slot that works for you below — it syncs instantly with your Google Calendar.
+            📅 Pick a slot that works for you below, it syncs instantly with your Google Calendar.
           </p>
           
           <p className="text-lg italic text-foreground/80 pt-4">
-            "One conversation can change the direction of your business."
+            "One conversation can change the direction of your business"
           </p>
         </div>
 

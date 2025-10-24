@@ -1,4 +1,5 @@
 "use client";
+import React from "react";
 import { Button } from "@/components/ui/button";
 import { ArrowRight } from "lucide-react";
 
@@ -21,7 +22,7 @@ const Hero = () => {
           <img
             src="/AR-Wordmark.svg"
             alt="Arevei"
-            className="w-20 md:w-36 h-auto mx-auto "
+            className="w-24 md:w-46 h-auto mx-auto "
           />
           
           </div>
@@ -41,16 +42,16 @@ const Hero = () => {
             </p>
 
             <p>
-              But wait — what if you lose?
+              But wait, what if you lose?
               <br />
               Don't worry. Even Spiderman had to take a leap before swinging into success.
             </p>
 
             <p className="text-foreground font-semibold">This is business.</p>
-            <p>When you bet right — you don't just win, you multiply.</p>
+            <p>When you bet right, you don't just win, you multiply.</p>
 
             <p className="text-xl text-foreground font-semibold mt-8">
-              The smartest risk you'll ever take? Investing in trust — through Email Marketing.
+              The smartest risk you'll ever take? Investing in trust through Email Marketing.
             </p>
           </div>
 

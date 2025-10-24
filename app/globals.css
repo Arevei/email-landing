@@ -123,6 +123,7 @@ body {
 .bg-gradient-primary {
   background-image: var(--gradient-primary);
   cursor: pointer;
+  color: black;
 }
 
 .gradient-border {

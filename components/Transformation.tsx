@@ -6,7 +6,7 @@ const benefits = [
   "A new sales channel unlocks — independent of Meta or Google.",
   "Unlimited reach — without budget inflation.",
   "Zero spam. Zero junk. Only qualified, high-intent leads.",
-  "CXO-level connections — because decision-makers read emails, not DMs.",
+  "CXO level connections — because decision-makers read emails, not DMs.",
 ];
 
 const Transformation = () => {
@@ -41,7 +41,7 @@ const Transformation = () => {
 
         <div className="text-center pt-12 space-y-4">
           <p className="text-xl text-muted-foreground">
-            Cold Email isn't "outbound."
+            Cold Email isn't "outbound"
           </p>
           <p className="text-2xl font-bold gradient-text">
             It's the new inbound.

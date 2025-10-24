@@ -2,12 +2,12 @@ import { Card, CardContent } from "@/components/ui/card";
 
 const testimonials = [
   {
-    quote: "We doubled our booked calls within 45 days. The messaging felt human, not robotic — and it worked.",
+    quote: "We doubled our booked calls within 45 days. The messaging felt human, not robotic and it worked.",
     author: "Rohit Mehta",
     title: "Founder @ GrowthWings"
   },
   {
-    quote: "Every campaign felt like a conversation. Cold email stopped being cold — it became personal and powerful.",
+    quote: "Every campaign felt like a conversation. Cold email stopped being cold, it became personal and powerful.",
     author: "Sarah Lin",
     title: "Head of Sales @ SaaSFlow"
   },

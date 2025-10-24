@@ -13,7 +13,7 @@ const WhyItMatters = () => {
           <p className="text-xl text-center text-foreground font-semibold">
             Email Marketing isn't another trend.
             <br />
-            It's the most trusted, high-ROI channel in digital marketing.
+            It's the most trusted, high ROI channel in digital marketing.
           </p>
 
           <div className="bg-card border border-border rounded-xl p-8 my-12 relative overflow-hidden">
@@ -35,12 +35,12 @@ const WhyItMatters = () => {
             <p className="text-xl text-foreground">No algorithms.</p>
             <p className="text-xl text-foreground">No bidding wars.</p>
             <p className="text-xl text-foreground font-semibold">
-              Just real conversations with real decision-makers who research you before replying.
+              Just real conversations with real decision makers who research you before replying.
             </p>
           </div>
 
           <p className="text-2xl text-center font-semibold text-foreground pt-8">
-            💬 Marketing is the fuel of business —{" "}
+            💬 Marketing is the fuel of business {" "}
             <span className="gradient-text">but Email Marketing is hydrogen fuel.</span>
           </p>
           <p className="text-center text-lg">

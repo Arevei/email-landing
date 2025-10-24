@@ -1,6 +1,14 @@
 import sgMail from "@sendgrid/mail"
-
+import { readFileSync } from "fs"
+import { join } from "path"
 sgMail.setApiKey(process.env.SENDGRID_API_KEY as string)
+
+export interface EmailAttachment {
+  content: string // base64 encoded file content
+  filename: string
+  type?: string // MIME type (optional, e.g., "application/pdf")
+  disposition?: string // default: "attachment"
+}
 
 export interface EmailOptions {
   to: string
@@ -8,16 +16,46 @@ export interface EmailOptions {
   html: string
   from?: string
   replyTo?: string
+  attachments?: EmailAttachment[]
 }
+
+
+export function getPdfAttachment(filename: string) {
+  try {
+    const filePath = join(process.cwd(), "public", filename)
+    const fileContent = readFileSync(filePath)
+    const base64Content = fileContent.toString("base64")
+
+    return {
+      content: base64Content,
+      filename,
+      type: "application/pdf",
+      disposition: "attachment",
+    }
+  } catch (error) {
+    console.error("[v0] Failed to read PDF file:", error)
+    return null
+  }
+}
+
 
 export async function sendEmail(options: EmailOptions): Promise<boolean> {
   try {
-    const msg = {
+    let msg:any = {
       to: options.to,
       from: options.from || `Arevei <${process.env.SENDGRID_FROM_EMAIL!}>`,
       subject: options.subject,
       html: options.html,
       replyTo: options.replyTo || process.env.SENDGRID_REPLY_TO,
+    }
+
+    if (options.attachments && options.attachments.length > 0) {
+      msg.attachments = options.attachments.map((att) => ({
+        content: att.content,
+        filename: att.filename,
+        type: att.type || "application/octet-stream",
+        disposition: att.disposition || "attachment",
+      }))
     }
 
     console.log("[SendGrid] Sending email to:", options.to)

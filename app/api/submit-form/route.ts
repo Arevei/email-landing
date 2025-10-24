@@ -1,5 +1,5 @@
 import { type NextRequest, NextResponse } from "next/server"
-import { sendEmail } from "@/lib/email-service"
+import { getPdfAttachment, sendEmail } from "@/lib/email-service"
 import { getAdminEmailTemplate, getUserEmailTemplate } from "@/lib/email-templates"
 
 const ADMIN_EMAIL = process.env.ADMIN_EMAIL || "info@mail.arevei.com"
@@ -80,16 +80,24 @@ export async function POST(request: NextRequest) {
       html: adminEmailHtml,
     })
 
-    const downloadUrl =
-      formType === "order"
-        ? `${process.env.NEXT_PUBLIC_APP_URL || "http://localhost:3000"}/api/download-guide`
-        : undefined
-    const userEmailHtml = getUserEmailTemplate(formType, name, downloadUrl)
-    await sendEmail({
+    const userEmailHtml = getUserEmailTemplate(formType, name, formType === "order")
+    const userEmailOptions: any = {
       to: email,
       subject: formType === "order" ? "Your Exclusive Guide is Ready!" : "We received your submission",
       html: userEmailHtml,
-    })
+    }
+
+    if (formType === "order") {
+      const pdfAttachment = getPdfAttachment("cold-email-guide.pdf")
+      if (pdfAttachment) {
+        userEmailOptions.attachments = [pdfAttachment]
+        console.log("[v0] PDF attachment added to email")
+      } else {
+        console.warn("[v0] PDF attachment could not be loaded, sending email without attachment")
+      }
+    }
+
+    await sendEmail(userEmailOptions)
 
     return NextResponse.json({ success: true, message: "Form submitted successfully" }, { status: 200 })
   } catch (error) {
