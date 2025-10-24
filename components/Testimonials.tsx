@@ -50,12 +50,14 @@ const Testimonials = () => {
           ))}
         </div>
 
-        <div className="flex justify-center items-center gap-8 pt-12 opacity-30 hover:opacity-50 transition-opacity">
+        <div className="flex flex-col md:flex-row justify-center items-center gap-8 pt-12 opacity-30 hover:opacity-50 transition-opacity">
           <div className="text-xs text-muted-foreground">TRUSTED BY</div>
-          <div className="h-8 w-px bg-border" />
+          <div className="h-8 w-px bg-border hidden md:block" />
+          <div className=" flex flex-wrap gap-6">
           <div className="text-sm text-muted-foreground tracking-wider">GrowthWings</div>
           <div className="text-sm text-muted-foreground tracking-wider">SaaSFlow</div>
           <div className="text-sm text-muted-foreground tracking-wider">BrightTech</div>
+          </div>
         </div>
       </div>
     </section>

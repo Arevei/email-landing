@@ -58,7 +58,7 @@ const Hero = () => {
             <Button 
               variant="gradient" 
               size="lg" 
-              className="text-lg px-12 py-6 h-auto animate-glow"
+              className="text-base sm:text-lg px-5 sm:px-12 py-6 h-auto animate-glow text-wrap w-min"
               onClick={scrollToContact}
             >
               Book Your Free Strategy Call

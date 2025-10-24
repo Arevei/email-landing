@@ -34,8 +34,8 @@ const BookACall = () => {
             </div>
             
             {/* Calendly Embed - Replace with actual Calendly URL */}
-            <div className="relative w-full bg-background/50 rounded-lg border border-border/50 overflow-hidden" style={{ minHeight: "700px" }}>
-             <div className="calendly-inline-widget" data-url="https://calendly.com/vinay-arevei/30min?hide_event_type_details=1" style={{minWidth:"320px",height:"700px"}}></div>
+            <div className="relative w-full bg-background/50 rounded-lg border border-border/50  min-h-[500px] sm:min-h-[750px]" >
+             <div className="calendly-inline-widget h-[500px] sm:h-[800px]" data-url="https://calendly.com/vinay-arevei/30min?hide_event_type_details=1" style={{minWidth:"320px"}}></div>
             </div>
             
             <div className="mt-6 flex items-center justify-center gap-2 text-sm text-muted-foreground">
