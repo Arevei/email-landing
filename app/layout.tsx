@@ -3,7 +3,7 @@ import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import Script from "next/script";
 import { Poppins } from "next/font/google"
-import { ToastProvider } from "@/components/ui/toast";
+import Toasting from "@/components/Toaster";
 const poppins = Poppins({
   subsets: ["latin"],
   weight: ["400", "500", "600", "700"],
@@ -46,10 +46,9 @@ export default function RootLayout({
           `}
         </Script>
 
-        <ToastProvider>
-
+          <Toasting>
         {children}
-        </ToastProvider>
+        </Toasting>
       </body>
     </html>
   );

@@ -8,9 +8,11 @@ import CallToAction from "@/components/CallToAction";
 import BookACall from "@/components/BookACall";
 import Contact from "@/components/Contact";
 import Footer from "@/components/Footer";
+import { Toast } from "@/components/ui/toast";
 export default function Home() {
   return (
-  <div className="min-h-screen bg-background">
+  <div className="min-h-screen bg-background relative">
+    <Toast />
       <Hero />
       <WhyItMatters />
       <AboutYou />

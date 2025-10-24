@@ -8,11 +8,9 @@ import { Label } from "@/components/ui/label"
 import { Card } from "@/components/ui/card"
 import { Checkbox } from "@/components/ui/checkbox"
 import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group"
-import { useToast } from "@/hooks/use-toast"
 import { CheckCircle2, Star } from "lucide-react"
-
+import toast from "react-hot-toast"
 const OrderForm = () => {
-  const { toast } = useToast()
   const [loading, setLoading] = useState(false)
   const [formData, setFormData] = useState({
     firstName: "",
@@ -29,20 +27,13 @@ const OrderForm = () => {
     e.preventDefault()
 
     if (!formData.firstName || !formData.lastName || !formData.email || !formData.phone) {
-      toast({
-        title: "Missing Information",
-        description: "Please fill in all required fields.",
-        variant: "destructive",
-      })
+      
+      toast.error("Please fill in all required fields.") 
       return
     }
 
     if (!formData.businessType || !formData.revenue) {
-      toast({
-        title: "Missing Information",
-        description: "Please select business type and revenue range.",
-        variant: "destructive",
-      })
+      toast.error("Please select business type and revenue range.")
       return
     }
 
@@ -59,10 +50,7 @@ const OrderForm = () => {
       })
 
       if (response.ok) {
-        toast({
-          title: "Success!",
-          description: "Your request has been submitted. We'll be in touch soon!",
-        })
+        toast.success("Your request has been submitted. We'll be in touch soon!")
         setFormData({
           firstName: "",
           lastName: "",
@@ -74,18 +62,10 @@ const OrderForm = () => {
           marketingConsent: false,
         })
       } else {
-        toast({
-          title: "Error",
-          description: "Failed to submit form. Please try again.",
-          variant: "destructive",
-        })
+        toast.error("Failed to submit form. Please try again.")
       }
     } catch (error) {
-      toast({
-        title: "Error",
-        description: "An error occurred. Please try again.",
-        variant: "destructive",
-      })
+      toast.error("An error occurred. Please try again.")
     } finally {
       setLoading(false)
     }
@@ -201,25 +181,25 @@ const OrderForm = () => {
                     className="space-y-3 mt-3"
                   >
                     <div className="flex items-center space-x-2">
-                      <RadioGroupItem value="0-2k" id="r1" disabled={loading} />
+                      <RadioGroupItem value="0-2k" id="r1" disabled={loading} className=" cursor-pointer"/>
                       <Label htmlFor="r1" className="font-normal cursor-pointer text-muted-foreground">
                         $0 - $2k/m (Just starting out, need all the help I can get)
                       </Label>
                     </div>
                     <div className="flex items-center space-x-2">
-                      <RadioGroupItem value="2k-10k" id="r2" disabled={loading} />
+                      <RadioGroupItem value="2k-10k" id="r2" disabled={loading} className=" cursor-pointer" />
                       <Label htmlFor="r2" className="font-normal cursor-pointer text-muted-foreground">
                         $2k - $10k/m (I kinda know what I'm doing)
                       </Label>
                     </div>
                     <div className="flex items-center space-x-2">
-                      <RadioGroupItem value="10k-30k" id="r3" disabled={loading} />
+                      <RadioGroupItem value="10k-30k" id="r3" disabled={loading}className=" cursor-pointer" />
                       <Label htmlFor="r3" className="font-normal cursor-pointer text-muted-foreground">
                         $10k - $30k/m (I'm doing alright, but I'd like to do better)
                       </Label>
                     </div>
                     <div className="flex items-center space-x-2">
-                      <RadioGroupItem value="30k+" id="r4" disabled={loading} />
+                      <RadioGroupItem value="30k+" id="r4" disabled={loading} className=" cursor-pointer"/>
                       <Label htmlFor="r4" className="font-normal cursor-pointer text-muted-foreground">
                         $30k+/m (Ready to take this to the next level)
                       </Label>
@@ -234,6 +214,7 @@ const OrderForm = () => {
                       checked={formData.transactionalConsent}
                       onCheckedChange={(checked) => handleChange("transactionalConsent", checked as boolean)}
                       disabled={loading}
+                      className=" cursor-pointer"
                     />
                     <Label
                       htmlFor="transactional"
@@ -251,6 +232,7 @@ const OrderForm = () => {
                       checked={formData.marketingConsent}
                       onCheckedChange={(checked) => handleChange("marketingConsent", checked as boolean)}
                       disabled={loading}
+                      className=" cursor-pointer"
                     />
                     <Label
                       htmlFor="marketing"

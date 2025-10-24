@@ -6,10 +6,8 @@ import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Textarea } from "@/components/ui/textarea"
 import { Send } from "lucide-react"
-import { useToast } from "@/hooks/use-toast"
-
+import toast from "react-hot-toast"
 const Contact = () => {
-  const { toast } = useToast()
   const [loading, setLoading] = useState(false)
   const [formData, setFormData] = useState({
     name: "",
@@ -29,11 +27,7 @@ const Contact = () => {
     e.preventDefault()
 
     if (!formData.name || !formData.email || !formData.message) {
-      toast({
-        title: "Missing Information",
-        description: "Please fill in all required fields.",
-        variant: "destructive",
-      })
+      toast("Please fill in all required fields.")
       return
     }
 
@@ -50,24 +44,13 @@ const Contact = () => {
       })
 
       if (response.ok) {
-        toast({
-          title: "Success!",
-          description: "We'll get back to you within 24 hours!",
-        })
+        toast.success("We'll get back to you within 24 hours!")
         setFormData({ name: "", email: "", company: "", message: "" })
       } else {
-        toast({
-          title: "Error",
-          description: "Failed to submit form. Please try again.",
-          variant: "destructive",
-        })
+        toast.error("Failed to submit form. Please try again.")
       }
     } catch (error) {
-      toast({
-        title: "Error",
-        description: "An error occurred. Please try again.",
-        variant: "destructive",
-      })
+      toast.error("An error occurred. Please try again.")
     } finally {
       setLoading(false)
     }
@@ -87,7 +70,7 @@ const Contact = () => {
 
         <form onSubmit={handleSubmit} className="space-y-6 bg-card border border-border rounded-xl p-8">
           <div className="space-y-2">
-            <label htmlFor="name" className="text-sm font-medium text-foreground">
+            <label htmlFor="name" className="text-sm font-medium text-foreground ">
               Your Name *
             </label>
             <Input
@@ -98,13 +81,13 @@ const Contact = () => {
               placeholder="John Doe"
               value={formData.name}
               onChange={handleChange}
-              className="bg-background border-border focus:border-accent"
+              className="bg-background border-border focus:border-accent mt-2"
               disabled={loading}
             />
           </div>
 
           <div className="space-y-2">
-            <label htmlFor="email" className="text-sm font-medium text-foreground">
+            <label htmlFor="email" className="text-sm font-medium text-foreground ">
               Email Address *
             </label>
             <Input
@@ -115,13 +98,13 @@ const Contact = () => {
               placeholder="john@company.com"
               value={formData.email}
               onChange={handleChange}
-              className="bg-background border-border focus:border-accent"
+              className="bg-background border-border focus:border-accent mt-2"
               disabled={loading}
             />
           </div>
 
           <div className="space-y-2">
-            <label htmlFor="company" className="text-sm font-medium text-foreground">
+            <label htmlFor="company" className="text-sm font-medium text-foreground ">
               Company Name
             </label>
             <Input
@@ -131,13 +114,13 @@ const Contact = () => {
               placeholder="Your Company"
               value={formData.company}
               onChange={handleChange}
-              className="bg-background border-border focus:border-accent"
+              className="bg-background border-border focus:border-accent mt-2"
               disabled={loading}
             />
           </div>
 
           <div className="space-y-2">
-            <label htmlFor="message" className="text-sm font-medium text-foreground">
+            <label htmlFor="message" className="text-sm font-medium text-foreground ">
               Tell us about your goals *
             </label>
             <Textarea
@@ -147,7 +130,7 @@ const Contact = () => {
               placeholder="What are you looking to achieve with email marketing?"
               value={formData.message}
               onChange={handleChange}
-              className="bg-background border-border focus:border-accent min-h-32"
+              className="bg-background border-border focus:border-accent min-h-32 mt-2"
               disabled={loading}
             />
           </div>
@@ -160,8 +143,8 @@ const Contact = () => {
           <div className="text-center pt-4">
             <p className="text-sm text-muted-foreground">
               Or email us directly at{" "}
-              <a href="mailto:vinay@arevei.com" className="text-accent hover:underline font-medium">
-                vinay@arevei.com
+              <a href="mailto:contact@arevei.com" className="text-accent hover:underline font-medium">
+                contact@arevei.com
               </a>
             </p>
           </div>

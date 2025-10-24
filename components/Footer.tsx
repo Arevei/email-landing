@@ -24,10 +24,10 @@ const Footer = () => {
           {/* Contact */}
           <div className="pt-4">
             <a 
-              href="mailto:vinay@arevei.com" 
+              href="mailto:contact@arevei.com" 
               className="text-accent hover:text-foreground transition-colors duration-300 font-medium"
             >
-              vinay@arevei.com
+              contact@arevei.com
             </a>
           </div>
         </div>
