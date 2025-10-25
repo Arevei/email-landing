@@ -115,7 +115,7 @@ export function getAdminEmailTemplate(formType: string, data: Record<string, any
         <div style="max-width: 600px; margin: 0 auto; background: #ffffff;">
           <!-- Logo Header -->
           <div style="background: #000000; padding: 30px 20px; text-align: center;">
-            <img src="https://email.arevei.com/Arevei.png" alt="Arevei Logo" width="150" style="display: block; margin: 0 auto; max-width: 150px; height: auto;">
+            <img src="https://email.arevei.com/Arevei.png" alt="Arevei Logo" width="150" style="display: block; margin: 0 auto; max-width: 150px; height: auto;" />
           </div>
 
           <!-- Content Header -->
@@ -204,7 +204,7 @@ export function getUserEmailTemplate(formType: string, name: string, hasAttachme
         <div style="max-width: 600px; margin: 0 auto; background: #ffffff;">
           <!-- Logo Header -->
           <div style="background: #000000; padding: 30px 20px; text-align: center;">
-            <img src="Arevei.png" alt="Arevei Logo" width="150" style="display: block; margin: 0 auto; max-width: 150px; height: auto;">
+            <img src="https://email.arevei.com/Arevei.png" alt="Arevei Logo" width="150" style="display: block; margin: 0 auto; max-width: 150px; height: auto;" />
           </div>
 
           <!-- Content Header -->
