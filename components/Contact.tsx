@@ -46,6 +46,14 @@ const Contact = () => {
       if (response.ok) {
         toast.success("We'll get back to you within 24 hours!")
         setFormData({ name: "", email: "", company: "", message: "" })
+         if (typeof window !== "undefined" && window.gtag) {
+      window.gtag("event", "contact_form", {
+        send_to: "G-BPC4B4QPPZ", // 🔹 Replace with your GA4 MEASUREMENT ID
+        utm_source: localStorage.getItem("utm_source"),
+        utm_medium: localStorage.getItem("utm_medium"),
+        utm_campaign: localStorage.getItem("utm_campaign"),
+      })
+    }
       } else {
         toast.error("Failed to submit form. Please try again.")
       }

@@ -17,14 +17,19 @@ export default function ThankYouPage() {
     // ✅ Fire conversion events when page loads
 
     // Google Analytics 4 Conversion Event
-    if (typeof window !== "undefined" && window.gtag) {
-      window.gtag("event", "conversion", {
-        send_to: "G-BPC4B4QPPZ", // 🔹 Replace with your GA4 MEASUREMENT ID
-        utm_source: localStorage.getItem("utm_source"),
-        utm_medium: localStorage.getItem("utm_medium"),
-        utm_campaign: localStorage.getItem("utm_campaign"),
-      })
-    }
+    const submitted = sessionStorage.getItem("formSubmitted");
+  
+  if (submitted && window.gtag) {
+    window.gtag("event", "conversion", {
+      send_to: "G-BPC4B4QPPZ",
+      utm_source: localStorage.getItem("utm_source"),
+      utm_medium: localStorage.getItem("utm_medium"),
+      utm_campaign: localStorage.getItem("utm_campaign"),
+    });
+
+    // clear flag so refresh doesn’t retrigger
+    sessionStorage.removeItem("formSubmitted");
+  }
 
     // Meta Pixel Lead Event
     // if (typeof window !== "undefined" && window.fbq) {

@@ -55,6 +55,7 @@ const OrderForm = () => {
 
       if (response.ok) {
         toast.success("Your request has been submitted. We'll be in touch soon!")
+        sessionStorage.setItem("formSubmitted", "true");
         setFormData({
           firstName: "",
           lastName: "",
