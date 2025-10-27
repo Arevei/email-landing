@@ -10,6 +10,8 @@ import { Checkbox } from "@/components/ui/checkbox"
 import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group"
 import { CheckCircle2, Star } from "lucide-react"
 import toast from "react-hot-toast"
+import { useRouter } from "next/navigation"
+
 const OrderForm = () => {
   const [loading, setLoading] = useState(false)
   const [formData, setFormData] = useState({
@@ -22,6 +24,7 @@ const OrderForm = () => {
     transactionalConsent: false,
     marketingConsent: false,
   })
+  const router = useRouter()
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
@@ -49,6 +52,7 @@ const OrderForm = () => {
         }),
       })
 
+
       if (response.ok) {
         toast.success("Your request has been submitted. We'll be in touch soon!")
         setFormData({
@@ -61,8 +65,12 @@ const OrderForm = () => {
           transactionalConsent: false,
           marketingConsent: false,
         })
+      router.push("/thank-you");
+
+        
       } else {
         toast.error("Failed to submit form. Please try again.")
+
       }
     } catch (error) {
       toast.error("An error occurred. Please try again.")

@@ -73,31 +73,31 @@ export async function POST(request: NextRequest) {
       return NextResponse.json({ error: "Failed to save to database" }, { status: 500 })
     }
 
-    const adminEmailHtml = getAdminEmailTemplate(formType, body)
-    await sendEmail({
-      to: ADMIN_EMAIL,
-      subject: `New ${formType} Submission from ${name}`,
-      html: adminEmailHtml,
-    })
+    // const adminEmailHtml = getAdminEmailTemplate(formType, body)
+    // await sendEmail({
+    //   to: ADMIN_EMAIL,
+    //   subject: `New ${formType} Submission from ${name}`,
+    //   html: adminEmailHtml,
+    // })
 
-    const userEmailHtml = getUserEmailTemplate(formType, name, formType === "order")
-    const userEmailOptions: any = {
-      to: email,
-      subject: formType === "order" ? "Your Exclusive Guide is Ready!" : "We received your submission",
-      html: userEmailHtml,
-    }
+    // const userEmailHtml = getUserEmailTemplate(formType, name, formType === "order")
+    // const userEmailOptions: any = {
+    //   to: email,
+    //   subject: formType === "order" ? "Your Exclusive Guide is Ready!" : "We received your submission",
+    //   html: userEmailHtml,
+    // }
 
-    if (formType === "order") {
-      const pdfAttachment = getPdfAttachment("cold-email-guide.pdf")
-      if (pdfAttachment) {
-        userEmailOptions.attachments = [pdfAttachment]
-        console.log("[v0] PDF attachment added to email")
-      } else {
-        console.warn("[v0] PDF attachment could not be loaded, sending email without attachment")
-      }
-    }
+    // if (formType === "order") {
+    //   const pdfAttachment = getPdfAttachment("cold-email-guide.pdf")
+    //   if (pdfAttachment) {
+    //     userEmailOptions.attachments = [pdfAttachment]
+    //     console.log("[v0] PDF attachment added to email")
+    //   } else {
+    //     console.warn("[v0] PDF attachment could not be loaded, sending email without attachment")
+    //   }
+    // }
 
-    await sendEmail(userEmailOptions)
+    // await sendEmail(userEmailOptions)
 
     return NextResponse.json({ success: true, message: "Form submitted successfully" }, { status: 200 })
   } catch (error) {

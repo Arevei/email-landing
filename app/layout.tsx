@@ -37,12 +37,12 @@ export default function RootLayout({
           src="https://www.googletagmanager.com/gtag/js?id=G-BPC4B4QPPZ"
           strategy="afterInteractive"
         />
-        <Script id="google-analytics" strategy="afterInteractive">
+        <Script id="google-analytics-init" strategy="afterInteractive">
           {`
             window.dataLayer = window.dataLayer || [];
             function gtag(){dataLayer.push(arguments);}
             gtag('js', new Date());
-            gtag('config', 'G-BPC4B4QPPZ');
+            gtag('config', 'G-BPC4B4QPPZ',{ debug_mode: true });
           `}
         </Script>
       </head>
