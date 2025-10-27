@@ -9,15 +9,21 @@ import BookACall from "@/components/BookACall";
 import Contact from "@/components/Contact";
 import Footer from "@/components/Footer";
 import { Toast } from "@/components/ui/toast";
+import WhyColdEmail from "@/components/WhyColdEmail"
+import Guarantee from "@/components/Guarantee"
+import SocialProofNotifications from "@/components/SocialProofNotifications"
 export default function Home() {
   return (
   <div className="min-h-screen bg-background relative">
     <Toast />
       <Hero />
+      {/* <SocialProofNotifications /> */}
       <WhyItMatters />
       <AboutYou />
       <Transformation />
       <TheMeaning />
+      <WhyColdEmail />
+      <Guarantee />
       <Testimonials />
       <CallToAction />
       <BookACall />

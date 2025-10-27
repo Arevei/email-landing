@@ -284,9 +284,9 @@ const OrderForm = () => {
                 <div className="flex gap-3">
                   <CheckCircle2 className="w-5 h-5 text-accent flex-shrink-0 mt-1" />
                   <div>
-                    <p className="text-foreground font-semibold">Outreach Kit</p>
+                    <p className="text-foreground font-semibold">Complete Zero Setup Confusion</p>
                     <p className="text-muted-foreground text-sm">
-                      Cold & warm email, LinkedIn, and AI call scripts that actually get replies.
+                      From Zero to First Campaign in 24 Hours Everything Included
                     </p>
                   </div>
                 </div>
@@ -294,9 +294,9 @@ const OrderForm = () => {
                 <div className="flex gap-3">
                   <CheckCircle2 className="w-5 h-5 text-accent flex-shrink-0 mt-1" />
                   <div>
-                    <p className="text-foreground font-semibold">Sales System</p>
+                    <p className="text-foreground font-semibold">Proven High-ROI Results with Measurable Metrics</p>
                     <p className="text-muted-foreground text-sm">
-                      AI + human setter scripts, discovery/demo flows, master closing script, objection vault.
+                     Achieve 10-30% Reply Rates with Scientific Precision
                     </p>
                   </div>
                 </div>
@@ -304,9 +304,18 @@ const OrderForm = () => {
                 <div className="flex gap-3">
                   <CheckCircle2 className="w-5 h-5 text-accent flex-shrink-0 mt-1" />
                   <div>
-                    <p className="text-foreground font-semibold">Fulfillment Vault</p>
+                    <p className="text-foreground font-semibold">Advanced Deliverability Protection</p>
                     <p className="text-muted-foreground text-sm">
-                      Plug-and-play onboarding, SLAs, payment recovery emails, client walkthroughs.
+                      Scale to 1000s of Emails Without Hitting Spam - Guaranteed
+                    </p>
+                  </div>
+                </div>
+                <div className="flex gap-3">
+                  <CheckCircle2 className="w-5 h-5 text-accent flex-shrink-0 mt-1" />
+                  <div>
+                    <p className="text-foreground font-semibold">From Lead Generation to Deal Closure</p>
+                    <p className="text-muted-foreground text-sm">
+                      Not Just Emails. A Complete Revenue Generation System
                     </p>
                   </div>
                 </div>

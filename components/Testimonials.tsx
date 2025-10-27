@@ -1,4 +1,5 @@
 import { Card, CardContent } from "@/components/ui/card";
+import Image from "next/image";
 
 const testimonials = [
   {
@@ -17,6 +18,16 @@ const testimonials = [
     title: "CEO @ BrightTech"
   }
 ];
+
+const trustedPlatforms = [
+  { name: "Listmonk", logo: "/listmonk.png" },
+  { name: "Shopify", logo: "/shopify.png" },
+  { name: "Zoho Campaign", logo: "/zoho.png" },
+  { name: "Apollo.io", logo: "/apollo.png" },
+  { name: "Google Workspace", logo: "/google.png" },
+  { name: "AWS SES", logo: "/aws.png" },
+]
+
 
 const Testimonials = () => {
   return (
@@ -60,6 +71,24 @@ const Testimonials = () => {
           </div>
         </div>
       </div>
+
+        <div className="space-y-8 pt-12">
+          <div className="text-center">
+            <p className="text-sm text-muted-foreground uppercase tracking-wider mb-8">Powered by trusted platforms</p>
+          </div>
+
+          <div className="flex flex-wrap justify-center items-center gap-4 md:gap-6">
+            {trustedPlatforms.map((platform, index) => (
+              <div
+                key={index}
+                className="flex items-center justify-center px-4 py-2 bg-card border border-border rounded-lg hover:border-accent/50 transition-all duration-300"
+              >
+                <Image src={platform.logo} alt={platform.name} width={100} height={40} className="object-contain max-h-8 md:max-h-16 bg-white" />
+                {/* <span className="text-xs md:text-sm font-semibold text-foreground text-center">{platform.name}</span> */}
+              </div>
+            ))}
+          </div>
+        </div>
     </section>
   );
 };
