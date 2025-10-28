@@ -20,7 +20,7 @@ const testimonials = [
 ];
 
 const trustedPlatforms = [
-  { name: "Listmonk", logo: "/listmonk.png" },
+  { name: "Listmonk", logo: "/listmonker.png" },
   { name: "Shopify", logo: "/shopify.png" },
   { name: "Zoho Campaign", logo: "/zoho.png" },
   { name: "Apollo.io", logo: "/apollo.png" },
@@ -34,7 +34,7 @@ const Testimonials = () => {
     <section className="py-20 px-4 relative" id="testimonials">
       <div className="absolute top-0 left-1/2 -translate-x-1/2 w-3/4 h-px bg-gradient-primary opacity-30" />
       
-      <div className="container max-w-6xl mx-auto space-y-12">
+      {/* <div className="container max-w-6xl mx-auto space-y-12">
         <h2 className="text-4xl md:text-5xl font-bold text-center">
           Trusted by Founders Who Turned{" "}
           <span className="gradient-text">Clicks Into Clients</span>
@@ -70,7 +70,7 @@ const Testimonials = () => {
           <div className="text-sm text-muted-foreground tracking-wider">BrightTech</div>
           </div>
         </div>
-      </div>
+      </div> */}
 
         <div className="space-y-8 pt-12">
           <div className="text-center">
@@ -81,9 +81,9 @@ const Testimonials = () => {
             {trustedPlatforms.map((platform, index) => (
               <div
                 key={index}
-                className="flex items-center justify-center px-4 py-2 bg-card border border-border rounded-lg hover:border-accent/50 transition-all duration-300"
+                className="flex items-center justify-center  bg-card border border-border rounded-lg hover:border-accent/50 transition-all duration-300"
               >
-                <Image src={platform.logo} alt={platform.name} width={100} height={40} className="object-contain max-h-8 md:max-h-16 bg-white" />
+                <Image src={platform.logo} alt={platform.name} width={100} height={40} className="object-contain max-h-8 md:max-h-18 bg-white overflow-hidden" />
                 {/* <span className="text-xs md:text-sm font-semibold text-foreground text-center">{platform.name}</span> */}
               </div>
             ))}

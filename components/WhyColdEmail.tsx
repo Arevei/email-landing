@@ -42,7 +42,7 @@ const WhyColdEmail = () => {
     { name: "HubSpot", logo: "/hubspot.png" },
     { name: "Lemlist", logo: "/lemilist.jpeg" },
     { name: "Apollo", logo: "/apollo.png" },
-    // { name: "Google Workspace", logo: "/google.png" },
+    { name: "Google Workspace", logo: "/google.png" },
   ]
 
   return (
@@ -81,7 +81,7 @@ const WhyColdEmail = () => {
             {publications.map((pub, index) => (
               <div
                 key={index}
-                className="flex items-center justify-center px-6 py-3 bg-card border border-border rounded-lg hover:border-accent/50 transition-all duration-300"
+                className="flex items-center justify-center  bg-card border border-border rounded-lg hover:border-accent/50 transition-all duration-300"
               >
                 <Image src={pub.logo} alt={pub.name} width={100} height={40} className="object-contain max-h-8 md:max-h-16 bg-white" />
               </div>
