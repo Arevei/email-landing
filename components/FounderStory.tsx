@@ -62,24 +62,24 @@ export default function FounderStory() {
           </div>
           {/* Left: Image */}
           <div className="flex flex-col-reverse md:flex-row justify-center md:justify-start">
-            <div className="relative w-full max-w-md ">
+            <div className="relative w-full max-w-md flex flex-col  items-center md:items-start ">
               
 
-              <div className="space-y-2.5">
+              <div className=" text-center md:text-left">
               
               <Image
                 src="/founder.png"
                 alt="Vinay Shakyawar, Founder of Arevei"
                 width={400}
                 height={500}
-                className="relative rounded-2xl shadow-2xl object-cover w-full h-auto"
+                className="relative rounded-2xl shadow-2xl object-cover w-full h-96 md:w-[90%] "
                 priority
               />
                  <div>
               
-              <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">Vinay Kumar  Shakyawar</h2>
+              <h2 className="text-3xl md:text-4xl font-bold text-foreground my-3">Vinay Kumar  Shakyawar</h2>
               <p className="text-lg text-muted-foreground">Founder and CEO , Arevei</p>
-              <div className=" w-fit mt-2">
+              <div className=" w-fit mt-2 mx-auto md:mx-0">
               <Link
       href="https://www.linkedin.com/in/vinaykumarshakyawar/" // replace with your LinkedIn URL
       target="_blank"
