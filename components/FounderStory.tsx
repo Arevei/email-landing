@@ -1,9 +1,8 @@
 "use client"
 
-import { Linkedin } from "lucide-react"
+import { Linkedin, LinkedinIcon } from "lucide-react"
 import Image from "next/image"
 import Link from "next/link"
-
 export default function FounderStory() {
   return (
     <section className="py-20 px-4 md:px-8 lg:px-16 bg-background">
@@ -63,12 +62,13 @@ export default function FounderStory() {
           </div>
           {/* Left: Image */}
           <div className="flex flex-col-reverse md:flex-row justify-center md:justify-start">
-            <div className="relative w-full max-w-md space-y-2.5">
-              <div className="absolute inset-0 bg-gradient-to-br from-accent/20 to-transparent rounded-2xl blur-3xl"></div>
+            <div className="relative w-full max-w-md ">
+              
 
+              <div className="space-y-2.5">
               
               <Image
-                src="/vinay.jpg"
+                src="/founder.png"
                 alt="Vinay Shakyawar, Founder of Arevei"
                 width={400}
                 height={500}
@@ -77,18 +77,46 @@ export default function FounderStory() {
               />
                  <div>
               
-              <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-4">Vinay Shakyawar</h2>
-              <p className="text-lg text-muted-foreground">Founder of Arevei</p>
+              <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">Vinay Kumar  Shakyawar</h2>
+              <p className="text-lg text-muted-foreground">Founder and CEO , Arevei</p>
+              <div className=" w-fit mt-2">
               <Link
-      href="https://www.linkedin.com/in/vinaykumarshakyawar/"
+      href="https://www.linkedin.com/in/vinaykumarshakyawar/" // replace with your LinkedIn URL
       target="_blank"
-      className="inline-flex items-center justify-center w-10 h-10 rounded-full bg-accent mt-2 hover:bg-blue-700 transition-colors cursor-pointer"
-      
+      rel="noopener noreferrer"
+      className="flex items-center gap-2 bg-[#0077B5] text-white rounded-md px-5 py-2 hover:bg-[#005983] transition-all shadow-md"
     >
-        <button>
-      <Linkedin className="w-5 h-5 text-white" />
-      </button>
+      <span className="text-sm sm:text-base ">
+        View my profile on
+      </span>
+      <div className="flex items-center text-white bg-transparent  rounded">
+        <span className=" font-bold text-xl mr-1">Linked</span>
+       <span className="flex items-center justify-center w-8 h-8">
+        <svg
+          height="28px"
+          width="28px"
+          viewBox="0 0 382 382"
+          xmlns="http://www.w3.org/2000/svg"
+          xmlSpace="preserve"
+          className="fill-white  transition-colors"
+        >
+          <path d="M347.445,0H34.555C15.471,0,0,15.471,0,34.555v312.889C0,366.529,15.471,382,34.555,382h312.889
+          C366.529,382,382,366.529,382,347.444V34.555C382,15.471,366.529,0,347.445,0z M118.207,329.844
+          c0,5.554-4.502,10.056-10.056,10.056H65.345c-5.554,0-10.056-4.502-10.056-10.056V150.403
+          c0-5.554,4.502-10.056,10.056-10.056h42.806c5.554,0,10.056,4.502,10.056,10.056V329.844z M86.748,123.432
+          c-22.459,0-40.666-18.207-40.666-40.666S64.289,42.1,86.748,42.1s40.666,18.207,40.666,40.666
+          S109.208,123.432,86.748,123.432z M341.91,330.654c0,5.106-4.14,9.246-9.246,9.246H286.73
+          c-5.106,0-9.246-4.14-9.246-9.246v-84.168c0-12.556,3.683-55.021-32.813-55.021
+          c-28.309,0-34.051,29.066-35.204,42.11v97.079c0,5.106-4.139,9.246-9.246,9.246h-44.426
+          c-5.106,0-9.246-4.14-9.246-9.246V149.593c0-5.106,4.14-9.246,9.246-9.246h44.426
+          c5.106,0,9.246,4.14,9.246,9.246v15.655c10.497-15.753,26.097-27.912,59.312-27.912
+          c73.552,0,73.131,68.716,73.131,106.472L341.91,330.654L341.91,330.654z" />
+        </svg>
+      </span>
+      </div>
     </Link>
+      </div>
+    </div>
             </div>
             </div>
             
