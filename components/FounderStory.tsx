@@ -11,10 +11,10 @@ export default function FounderStory() {
            
             <span className="gradient-text">👤 Meet the Founder</span>
           </h2>
-        <div className=" flex flex-col-reverse md:grid  grid-cols-1 md:grid-cols-2 gap-12 items-center mt-10">
+        <div className=" flex flex-col-reverse  md:flex-row gap-12 justify-between items-center mt-10">
             
             {/* Right: Content */}
-          <div className="space-y-8">
+          <div className="space-y-8 w-full md:w-[60%]">
          <p className="text-accent text-sm font-semibold uppercase tracking-wider mb-2"></p>
 
             <div className="space-y-6 text-foreground/90 leading-relaxed ">
@@ -61,7 +61,7 @@ export default function FounderStory() {
             </p>
           </div>
           {/* Left: Image */}
-          <div className="flex flex-col-reverse md:flex-row justify-center md:justify-start">
+          <div className="ml-0 md:ml-auto flex flex-col-reverse md:flex-row justify-center items-center md:justify-start w-full md:w-[40%]">
             <div className="relative w-full max-w-md flex flex-col  items-center md:items-start ">
               
 
@@ -86,7 +86,7 @@ export default function FounderStory() {
       rel="noopener noreferrer"
       className="flex items-center gap-2 bg-[#0077B5] text-white rounded-md px-5 py-2 hover:bg-[#005983] transition-all shadow-md"
     >
-      <span className="text-sm sm:text-base ">
+      <span className="text-sm sm:text-base whitespace-nowrap ">
         View my profile on
       </span>
       <div className="flex items-center text-white bg-transparent  rounded">
