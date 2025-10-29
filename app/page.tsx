@@ -18,12 +18,12 @@ export default function Home() {
   <div className="min-h-screen bg-background relative">
     <Toast />
       <Hero />
+      <Transformation />
       <FounderStory />
       {/* <SocialProofNotifications /> */}
       <WhyItMatters />
-      <AboutYou />
-      <Transformation />
-      <TheMeaning />
+      {/* <AboutYou /> */}
+      {/* <TheMeaning /> */}
       <WhyColdEmail />
       <Guarantee />
       <Testimonials />

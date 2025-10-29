@@ -14,7 +14,7 @@ const CallToAction = () => {
       
       <div className="container max-w-4xl mx-auto space-y-12 text-center">
         <h2 className="text-4xl md:text-5xl font-bold leading-tight">
-          I'm Just One Call Away From Your{" "}
+          We're Just One Call Away From Your Next Big Growth Story{" "}
           <span className="gradient-text">Next Big Growth Story</span>
         </h2>
 
@@ -40,8 +40,8 @@ const CallToAction = () => {
         <div className="pt-16 space-y-6">
           <div className="w-24 h-px bg-gradient-primary mx-auto opacity-50" />
           <h2 className="text-4xl md:text-5xl font-bold leading-tight">
-          We Used to Sell This For $2,997 Today, 
-          <span className="gradient-text">You Can Steal It For $0!</span>
+          Download the ₹2,997 Cold Email Blueprint  
+          <span className="gradient-text">"Free Now"</span>
         </h2>
           
           <h3 className="text-xl font-bold text-foreground">

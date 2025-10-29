@@ -20,7 +20,7 @@ const Transformation = () => {
         </h2>
 
         <p className="text-xl text-center text-foreground font-semibold mb-12">
-          When you master Cold Email, everything changes:
+          We turn Cold Emails into predictable revenue.
         </p>
 
         <div className="grid gap-6 md:gap-8">

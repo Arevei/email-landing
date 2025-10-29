@@ -29,30 +29,16 @@ const Hero = () => {
         
         <div className="text-center space-y-8 animate-fade-in-up">
           <h1 className="text-5xl md:text-7xl font-bold leading-tight">
-            Your Next Revenue Leap
+            Turn Cold Emails into 4X ROI Campaigns 
             <br />
-            <span className="gradient-text">Starts with One Email</span>
+            <span className="gradient-text">Predictable Growth Starts Here</span>
           </h1>
 
           <div className="space-y-6 text-lg md:text-xl text-muted-foreground max-w-3xl mx-auto">
             <p className="font-medium">
-              If you had the chance to double your revenue, would you take it?
-              <br />
-              <span className="text-foreground">Of course, you would.</span>
+               Build a proven 3-Month System that converts cold leads into booked meetings or your money back.
             </p>
 
-            <p>
-              But wait, what if you lose?
-              <br />
-              Don't worry. Even Spiderman had to take a leap before swinging into success.
-            </p>
-
-            <p className="text-foreground font-semibold">This is business.</p>
-            <p>When you bet right, you don't just win, you multiply.</p>
-
-            <p className="text-xl text-foreground font-semibold mt-8">
-              The smartest risk you'll ever take? Investing in trust through Email Marketing.
-            </p>
           </div>
 
           <div className="pt-8">
