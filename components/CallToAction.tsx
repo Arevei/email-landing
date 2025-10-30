@@ -14,7 +14,7 @@ const CallToAction = () => {
       
       <div className="container max-w-4xl mx-auto space-y-12 text-center">
         <h2 className="text-4xl md:text-5xl font-bold leading-tight">
-          We're Just One Call Away From Your Next Big Growth Story{" "}
+          We're Just One Call Away From Your {" "}
           <span className="gradient-text">Next Big Growth Story</span>
         </h2>
 
@@ -25,23 +25,38 @@ const CallToAction = () => {
         </p>
 
         <div className="pt-8">
-          <Button 
-            variant="gradient" 
-            size="lg" 
-            className="text-base sm:text-lg px-5 sm:px-12 py-6 h-auto animate-glow text-wrap"
-            onClick={scrollToContact}
-          >
-            Book a Free Strategy Call
-            <ArrowRight className="ml-2" />
-          </Button>
+          <button
+        onClick={scrollToContact}
+        className="
+          relative group w-fit rounded-[10px] p-[1px]
+          bg-[linear-gradient(90deg,#00ffd9_0%,#00aeff_100%)]
+          transition-all duration-500 ease-in-out
+          hover:scale-[1.02] cursor-pointer
+        "
+      >
+        <span
+          className="
+            flex items-center justify-center gap-2
+            rounded-[10px] px-8 sm:px-12 py-4 sm:py-5 
+            text-base sm:text-lg font-medium
+            text-white bg-black
+            transition-all duration-500 ease-in-out
+            group-hover:bg-[linear-gradient(90deg,#00ffd9_0%,#00aeff_100%)]
+            group-hover:text-black
+          "
+        >
+          Book a Free Strategy Call
+          <ArrowRight className="w-5 h-5" />
+        </span>
+      </button>
         </div>
 
         {/* Alternative CTA */}
         <div className="pt-16 space-y-6">
           <div className="w-24 h-px bg-gradient-primary mx-auto opacity-50" />
           <h2 className="text-4xl md:text-5xl font-bold leading-tight">
-          Download the ₹2,997 Cold Email Blueprint  
-          <span className="gradient-text">"Free Now"</span>
+          Download the ₹2,997 Cold Email Blueprint   
+          <span className="gradient-text"> "Free Now"</span>
         </h2>
           
           <h3 className="text-xl font-bold text-foreground">

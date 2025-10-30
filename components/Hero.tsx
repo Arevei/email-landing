@@ -42,15 +42,30 @@ const Hero = () => {
           </div>
 
           <div className="pt-8">
-            <Button 
-              variant="gradient" 
-              size="lg" 
-              className="text-base sm:text-lg px-5 sm:px-12 py-6 h-auto animate-glow text-wrap w-min"
-              onClick={scrollToContact}
-            >
-              Book Your Free Strategy Call
-              <ArrowRight className="ml-2" />
-            </Button>
+             <button
+        onClick={scrollToContact}
+        className="
+          relative group w-fit rounded-[10px] p-[1px]
+          bg-[linear-gradient(90deg,#00ffd9_0%,#00aeff_100%)]
+          transition-all duration-500 ease-in-out
+          hover:scale-[1.02] cursor-pointer
+        "
+      >
+        <span
+          className="
+            flex items-center justify-center gap-2
+            rounded-[10px] px-8 sm:px-12 py-4 sm:py-5 
+            text-base sm:text-lg font-medium
+            text-white bg-black
+            transition-all duration-500 ease-in-out
+            group-hover:bg-[linear-gradient(90deg,#00ffd9_0%,#00aeff_100%)]
+            group-hover:text-black
+          "
+        >
+          Book a Free Strategy Call
+          <ArrowRight className="w-5 h-5" />
+        </span>
+      </button>
           </div>
         </div>
       </div>

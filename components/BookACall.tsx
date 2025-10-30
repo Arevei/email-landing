@@ -9,7 +9,7 @@ const BookACall = () => {
       <div className="container max-w-4xl mx-auto space-y-8 text-center">
         <div className="space-y-4">
           <h2 className="text-4xl md:text-5xl font-bold">
-            Let's Build Your{" "}
+            Let's Build Your {" "}
             <span className="gradient-text">Cold Email Masterpiece</span>
           </h2>
           

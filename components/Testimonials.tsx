@@ -72,7 +72,7 @@ const Testimonials = () => {
         </div>
       </div> */}
 
-        <div className="space-y-8 pt-12">
+        <div className="space-y-8 ">
           <div className="text-center">
             <p className="text-sm text-muted-foreground uppercase tracking-wider mb-8">Powered by trusted platforms</p>
           </div>

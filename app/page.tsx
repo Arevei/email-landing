@@ -13,11 +13,13 @@ import WhyColdEmail from "@/components/WhyColdEmail"
 import Guarantee from "@/components/Guarantee"
 import SocialProofNotifications from "@/components/SocialProofNotifications"
 import FounderStory from "@/components/FounderStory";
+import TrustedByFounders from "@/components/TrustedByFounders";
 export default function Home() {
   return (
   <div className="min-h-screen bg-background relative">
     <Toast />
       <Hero />
+      <TrustedByFounders />
       <Transformation />
       <FounderStory />
       {/* <SocialProofNotifications /> */}
